@@ -1,14 +1,12 @@
 import psycopg2
 from openpyxl import Workbook
 
-# -----------------------------
 # Database Configuration
-# -----------------------------
 DB_CONFIG = {
     "host": "localhost",
     "database": "dvdrental",
-    "user": "postgres",
-    "password": "Sql@2026",
+    "user": "Your_Postgrel_Username",
+    "password": "Your_Postgrel_Password",
     "port": 5432
 }
 
@@ -18,9 +16,9 @@ cursor = conn.cursor()
 wb = Workbook()
 wb.remove(wb.active)
 
-# ---------------------------------------
+
 # Helper Function
-# ---------------------------------------
+
 
 def export_sheet(sheet_name, sql):
     cursor.execute(sql)
@@ -34,9 +32,9 @@ def export_sheet(sheet_name, sql):
     for row in cursor.fetchall():
         ws.append(row)
 
-# ---------------------------------------
+
 # Q1
-# ---------------------------------------
+
 
 export_sheet(
     "Q1",
@@ -50,9 +48,9 @@ export_sheet(
     """
 )
 
-# ---------------------------------------
+
 # Q2
-# ---------------------------------------
+
 
 export_sheet(
     "Q2",
@@ -67,9 +65,9 @@ export_sheet(
     """
 )
 
-# ---------------------------------------
+
 # Q3
-# ---------------------------------------
+
 
 export_sheet(
     "Q3",
